@@ -14,7 +14,7 @@ public class Controller1 {
         return "template1";  //использовать шаблон template1.html из папки ресурсов
     }
 
-    public Controller1() {
-        System.out.println("СОЗДАЕТСЯ Controller1");
-    }
+//    public Controller1() {
+//        System.out.println("СОЗДАЕТСЯ Controller1");
+//    }
 }

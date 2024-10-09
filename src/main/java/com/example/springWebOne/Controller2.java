@@ -3,6 +3,7 @@ package com.example.springWebOne;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Random;
 
@@ -19,9 +20,16 @@ public class Controller2 {
             return "template2";  //использовать шаблон template2.html из папки ресурсов
         }
 
+        @GetMapping("/addition")    //такой запрос может прийти с параметрами a, b или без них
+        public String addition(@RequestParam(name = "a", defaultValue = "0") int a,
+                               @RequestParam(name = "b", defaultValue = "0") int b, Model model){
+            //Model нужна в первую очередь, чтобы внедрить ответ в шаблон
+            //System.out.println("a = " + a);  System.out.println("b = " + b);
+            model.addAttribute("result", a+b);
+            return "templateSum";
+        }
 
-
-    public Controller2() {
-        System.out.println("СОЗДАЕТСЯ Controller2");
-    }
+//    public Controller2() {
+//        System.out.println("СОЗДАЕТСЯ Controller2");
+//    }
 }
